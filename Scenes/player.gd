@@ -31,7 +31,6 @@ func _physics_process(delta):
 		
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
-	target_velocity.y = direction.y * speed
 	
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
