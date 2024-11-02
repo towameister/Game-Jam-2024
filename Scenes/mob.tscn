@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://hd4blcx7iwie"]
+
+[ext_resource type="Script" path="res://Scenes/mob.gd" id="1_i1dbd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1plbu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_trg2c"]
+
+[node name="Mob" type="CharacterBody3D"]
+script = ExtResource("1_i1dbd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.048277, 0)
+shape = SubResource("SphereShape3D_1plbu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_trg2c")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.512905, -0.548107, -0.500744, 1.02093, 0.992699, 1.00149)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
