@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0fb307swncet"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_30dtb"]
+[ext_resource type="PackedScene" uid="uid://bkb0f24bbfwp0" path="res://Assets/luke cube.fbx" id="1_44g8i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0vdg5"]
+radius = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 4
+script = ExtResource("1_30dtb")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="luke cube" parent="Pivot" instance=ExtResource("1_44g8i")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_0vdg5")
