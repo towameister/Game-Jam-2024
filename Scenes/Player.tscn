@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2q6xv8ggesid"]
+[gd_scene load_steps=4 format=3 uid="uid://b0fb307swncet"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_30dtb"]
 [ext_resource type="PackedScene" uid="uid://bkb0f24bbfwp0" path="res://Assets/luke cube.fbx" id="1_44g8i"]
