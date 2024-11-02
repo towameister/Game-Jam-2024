@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt1e8guufhckm"]
+
+[ext_resource type="PackedScene" uid="uid://0ags4bg0mlo8" path="res://Assets/tile1.fbx" id="1_w4faf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_takap"]
+size = Vector3(0.5, 0.02, 0.5)
+
+[node name="Tile" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Tile" parent="." instance=ExtResource("1_w4faf")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_takap")
