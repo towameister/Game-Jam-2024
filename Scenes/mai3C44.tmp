@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=6 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="PackedScene" uid="uid://b0fb307swncet" path="res://Scenes/Player.tscn" id="1_8ce3d"]
-[ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
+[ext_resource type="Script" path="res://Scenes/HealthBarControl.gd" id="2_2wk02"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1dwso"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hbmfw"]
 size = Vector3(60, 2, 60)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1865j"]
+bg_color = Color(0.592157, 0, 0, 1)
 
 [node name="Main" type="Node"]
 
@@ -48,4 +51,29 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00547791, -1.67642, 8.77239)
 fov = 131.297
 
-[node name="Ui" parent="." instance=ExtResource("2_yn0ed")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2wk02")
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 1018.0
+offset_right = 472.0
+offset_bottom = 1045.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_1865j")
+value = 100.0
+show_percentage = false
+
+[node name="HealthBarLabel" type="Label" parent="Control/HealthBar"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 1.0
+offset_right = 250.0
+offset_bottom = 28.0
+text = "100/100"
