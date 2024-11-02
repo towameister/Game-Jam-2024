@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=4 format=3 uid="uid://dhpi22irethqu"]
+
+[ext_resource type="PackedScene" uid="uid://b0fb307swncet" path="res://Scenes/Player.tscn" id="1_8ce3d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1dwso"]
 size = Vector3(60, 2, 60)
@@ -22,3 +24,5 @@ mesh = SubResource("BoxMesh_hbmfw")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 light_color = Color(0.598351, 0.0614132, 0.242108, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_8ce3d")]

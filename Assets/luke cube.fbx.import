@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bkb0f24bbfwp0"
-path="res://.godot/imported/luke cube.fbx-d8e84744f7c09898bfd6f348ff380256.scn"
+path="res://.godot/imported/luke cube.fbx-b0682d024356ac6a46d6b12f6201ee8e.scn"
 
 [deps]
 
-source_file="res://Art/luke cube.fbx"
-dest_files=["res://.godot/imported/luke cube.fbx-d8e84744f7c09898bfd6f348ff380256.scn"]
+source_file="res://Assets/luke cube.fbx"
+dest_files=["res://.godot/imported/luke cube.fbx-b0682d024356ac6a46d6b12f6201ee8e.scn"]
 
 [params]
 
