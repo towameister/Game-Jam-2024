@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0fb307swncet"]
+
+[ext_resource type="PackedScene" uid="uid://bkb0f24bbfwp0" path="res://Art/luke cube.fbx" id="1_44g8i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0vdg5"]
+radius = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="luke cube" parent="Pivot" instance=ExtResource("1_44g8i")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_0vdg5")
