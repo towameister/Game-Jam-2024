@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://rsa6q4mtuk2i"]
+
+[ext_resource type="Texture2D" uid="uid://cyjvxnsoiop8o" path="res://Assets/Hai.png" id="1_vjavi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvsfe"]
+size = Vector3(29, 1, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unll2"]
+albedo_texture = ExtResource("1_vjavi")
+albedo_texture_force_srgb = true
+roughness_texture_channel = 4
+normal_scale = -0.65
+normal_texture = ExtResource("1_vjavi")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ib7h0"]
+material = SubResource("StandardMaterial3D_unll2")
+size = Vector3(60, 2, 60)
+
+[node name="Floor" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 0, 2)
+shape = SubResource("BoxShape3D_jvsfe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ib7h0")
