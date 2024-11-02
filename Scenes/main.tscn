@@ -1,11 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=8 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="PackedScene" uid="uid://b0fb307swncet" path="res://Scenes/Player.tscn" id="1_8ce3d"]
+[ext_resource type="Texture2D" uid="uid://cyjvxnsoiop8o" path="res://Assets/Hai.png" id="1_kk0f6"]
+[ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
+[ext_resource type="PackedScene" uid="uid://kugqgrlaicjl" path="res://Scenes/Environment/tile_set.tscn" id="4_ucwe6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1dwso"]
-size = Vector3(60, 2, 60)
+size = Vector3(29, 1, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjgqq"]
+albedo_texture = ExtResource("1_kk0f6")
+albedo_texture_force_srgb = true
+roughness_texture_channel = 4
+normal_scale = -0.65
+normal_texture = ExtResource("1_kk0f6")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hbmfw"]
+material = SubResource("StandardMaterial3D_wjgqq")
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
@@ -16,11 +28,10 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 0, 2)
 shape = SubResource("BoxShape3D_1dwso")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("BoxMesh_hbmfw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -46,3 +57,34 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00547791, -1.67642, 8.77239)
 fov = 131.297
+
+[node name="Ui" parent="." instance=ExtResource("2_yn0ed")]
+
+[node name="GroundTiles" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 20, -1, -20)
+
+[node name="TileSet" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+
+[node name="TileSet2" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="TileSet3" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="TileSet4" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="TileSet5" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="TileSet6" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+
+[node name="TileSet7" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="TileSet8" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="TileSet9" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
