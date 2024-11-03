@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dva05fmpwsq7u"]
+
+[ext_resource type="PackedScene" uid="uid://j3m5nsih52a5" path="res://Assets/Environment/hanging planter.fbx" id="1_8crep"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pxra3"]
+height = 0.0556361
+radius = 0.0660779
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dnpbs"]
+height = 0.0894397
+radius = 0.00528676
+
+[node name="HangingPlanter" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="hanging planter" parent="." instance=ExtResource("1_8crep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239841, 1.19209e-07, 0.622365)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0280626, -0.0165022, 0.915608)
+shape = SubResource("CylinderShape3D_pxra3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0292353, 0.156842, 0.865196)
+shape = SubResource("CylinderShape3D_dnpbs")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=11 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_42od2"]
 [ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mw4s25ptqaev" path="res://Scenes/player_girl.tscn" id="7_4j5xu"]
 [ext_resource type="PackedScene" uid="uid://bpe1r80r7wgyk" path="res://Scenes/Environment/props/Barrel.tscn" id="7_ij14f"]
 [ext_resource type="PackedScene" uid="uid://diwqomsihvc3s" path="res://Scenes/world.tscn" id="7_xlq7a"]
+[ext_resource type="PackedScene" uid="uid://j3m5nsih52a5" path="res://Assets/Environment/hanging planter.fbx" id="8_pbixy"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="8_qv26f"]
 
 [node name="Main" type="Node"]
@@ -428,6 +429,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, -0.714464, -40.4596
 
 [node name="Barrel7" parent="map" instance=ExtResource("7_ij14f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, 5.80241, -36.2696)
+
+[node name="hanging planter" parent="map" instance=ExtResource("8_pbixy")]
+transform = Transform3D(-15, 0, -1.31134e-06, 0, 15, 0, 1.31134e-06, 0, -15, -36.7547, 10.6891, -32.5233)
+
+[node name="hanging planter2" parent="map" instance=ExtResource("8_pbixy")]
+transform = Transform3D(-15, 0, -1.31134e-06, 0, 15, 0, 1.31134e-06, 0, -15, -35.2862, 10.6891, 43.2983)
+
+[node name="hanging planter3" parent="map" instance=ExtResource("8_pbixy")]
+transform = Transform3D(-15, 0, -1.31134e-06, 0, 15, 0, 1.31134e-06, 0, -15, -21.4239, 5.50167, 43.2983)
+
+[node name="hanging planter4" parent="map" instance=ExtResource("8_pbixy")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -7.37418, 10.7852, -7.48668)
 
 [node name="PlayerGirl" parent="." instance=ExtResource("7_4j5xu")]
 collision_mask = 7
