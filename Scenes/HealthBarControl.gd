@@ -1,6 +1,7 @@
 extends Node
 
 @export var max_hp = 100
+@export var min_hp = 0
 @export var current_hp = 100
 
 func _ready():
@@ -13,8 +14,9 @@ func _input(event: InputEvent):
 			IncreaseHealth()
 			
 func LowerHealth():
-	current_hp -= 1
-	SetHealthBar()
+	if current_hp > min_hp:
+		current_hp -= 1
+		SetHealthBar()
 	
 
 func IncreaseHealth():

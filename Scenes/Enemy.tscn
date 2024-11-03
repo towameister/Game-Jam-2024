@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dncuaugyh6m3e"]
+
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_k2xhs"]
+[ext_resource type="PackedScene" uid="uid://bkb0f24bbfwp0" path="res://Assets/luke cube.fbx" id="2_svsyj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_db04l"]
+size = Vector3(0.218597, 0.223686, 0.206711)
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_k2xhs")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="luke cube" parent="Pivot" instance=ExtResource("2_svsyj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135803, 0.0911674, 0.00385284)
+shape = SubResource("BoxShape3D_db04l")

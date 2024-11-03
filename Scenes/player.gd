@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var mouse_delta = Vector2()
 @export var sens = 0.001
 @export var jump_impulse = 1.5
-@export var dash_impulse = 3
+@export var dash_impulse = 2
 @onready var camera_pivot = $CameraPivot
 var dashCount = 0
 var maxDashes = 3
@@ -23,76 +23,101 @@ var target_velocity = Vector3.ZERO
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
-	if isIdle == true and is_on_floor() and HealthBarControl.current_hp > 0:
+	if isIdle == true and is_on_floor() and HealthBarControl.current_hp > 0 and alive == true:
 		$"animation base/AnimationPlayer".play("happy idle")
-	elif isIdle == false and is_on_floor() and HealthBarControl.current_hp > 0:
+	elif isIdle == false and is_on_floor() and HealthBarControl.current_hp > 0 and alive == true:
 		$"animation base/AnimationPlayer".play("run spot/run on spot")
-	elif alive == false:
-		$"animation base/AnimationPlayer".pause()
 	elif HealthBarControl.current_hp <= 0:
 		$"animation base/AnimationPlayer".play("die/die")
 		alive = false
+	elif HealthBarControl.current_hp > 0:
+		alive = true
 	else:
 		$"animation base/AnimationPlayer".pause()
-	if Input.is_action_pressed("move_right"):
-		direction.x -= 1
-		isIdle = false
-	if Input.is_action_pressed("move_left"):
-		direction.x += 1
-		isIdle = false
-	if Input.is_action_pressed("move_back"):
-		direction.z -= 1
-		isIdle = false
-	if Input.is_action_pressed("move_forward"):
-		direction.z += 1
-		isIdle = false
 		
-	if is_on_floor() and Input.is_action_pressed("jump"):
-		target_velocity.y = jump_impulse * speed
+	if alive:
+		if Input.is_action_pressed("move_right"):
+			direction.x -= 1
+			isIdle = false
+		if Input.is_action_pressed("move_left"):
+			direction.x += 1
+			isIdle = false
+		if Input.is_action_pressed("move_back"):
+			direction.z -= 1
+			isIdle = false
+		if Input.is_action_pressed("move_forward"):
+			direction.z += 1
+			isIdle = false
+				
+		if is_on_floor() and Input.is_action_pressed("jump"):
+			target_velocity.y = jump_impulse * speed
+			
+		var orientation = Vector3()
+		if direction != Vector3.ZERO:
+			direction = direction.normalized()
+			orientation = (transform.basis.z * direction.z + transform.basis.x * direction.x)	 #how
+			
+		if is_on_floor():
+			target_velocity.x = orientation.x * speed
+			target_velocity.z = orientation.z * speed
+			dashCount = 0
+			
+		if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_forward") and dashCount < maxDashes:
+			target_velocity.z = orientation.z * speed * dash_impulse 
+			dashCount += 1
+			
+		if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_left") and dashCount < maxDashes:
+			target_velocity.x = orientation.x * speed * dash_impulse 
+			dashCount += 1
+			
+		if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_back") and dashCount < maxDashes:
+			target_velocity.z = orientation.z * speed * dash_impulse 
+			dashCount += 1
+			
+		if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_right") and dashCount < maxDashes:
+			target_velocity.x = orientation.x * speed * dash_impulse 
+			dashCount += 1
 		
-	var orientation = Vector3()
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
-		orientation = (transform.basis.z * direction.z + transform.basis.x * direction.x)	 #how
-		
-	if is_on_floor():
-		target_velocity.x = orientation.x * speed
-		target_velocity.z = orientation.z * speed
-		dashCount = 0
-		
-	if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_forward") and dashCount < maxDashes:
-		target_velocity.z = orientation.z * speed * dash_impulse 
-		dashCount += 1
-		
-	if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_left") and dashCount < maxDashes:
-		target_velocity.x = orientation.x * speed * dash_impulse 
-		dashCount += 1
-		
-	if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_back") and dashCount < maxDashes:
-		target_velocity.z = orientation.z * speed * dash_impulse 
-		dashCount += 1
-		
-	if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_right") and dashCount < maxDashes:
-		target_velocity.x = orientation.x * speed * dash_impulse 
-		dashCount += 1
+		if not is_on_floor():
+			target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+			
+		if is_on_floor() and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_forward"):
+			isIdle = true
+			
 	
-	if not is_on_floor():
-		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+			
+		velocity = target_velocity
+		move_and_slide()
 		
 	if is_on_floor() and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_forward"):
 		isIdle = true
 		
-
-		
 	velocity = target_velocity
+	
+		# Iterate through all collisions that occurred this frame
+	for index in range(get_slide_collision_count()):
+		# We get one of the collisions with the player
+		var collision = get_slide_collision(index)
+
+		# If the collision is with ground
+		if collision.get_collider() == null:
+			continue
+
+		# If the collider is with a mob
+		if collision.get_collider().is_in_group("enemy"):
+			var enemy = collision.get_collider()
+			enemy.die()
+			break
+	
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		mouse_delta = event.relative
-		rotate_y(-event.relative.x * sens)
-		camera_pivot.rotate_x(event.relative.y * sens)
-		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-70), deg_to_rad(-10))
-		
+	if alive:
+		if event is InputEventMouseMotion:
+			mouse_delta = event.relative
+			rotate_y(-event.relative.x * sens)
+			camera_pivot.rotate_x(event.relative.y * sens)
+			camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-70), deg_to_rad(-10))
+	
 func _process(delta) -> void:
 	pass
