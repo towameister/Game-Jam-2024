@@ -77,6 +77,19 @@ func _physics_process(delta):
 		if not is_on_floor() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_right") and dashCount < maxDashes:
 			target_velocity.x = orientation.x * speed * dash_impulse 
 			dashCount += 1
+			
+			
+		if not is_on_floor() and Input.is_action_pressed("move_forward") and dashCount > maxDashes:
+			direction.z += 1
+			
+		if not is_on_floor() and Input.is_action_pressed("move_left") and dashCount > maxDashes:
+			direction.x += 1
+			
+		if not is_on_floor() and Input.is_action_pressed("move_back") and dashCount > maxDashes:
+			direction.z -= 1
+			
+		if not is_on_floor() and Input.is_action_pressed("move_right") and dashCount > maxDashes:
+			direction.x -= 1
 		
 		if not is_on_floor():
 			target_velocity.y = target_velocity.y - (fall_acceleration * delta)
