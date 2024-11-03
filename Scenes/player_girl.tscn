@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mw4s25ptqaev"]
+
+[ext_resource type="PackedScene" uid="uid://b7pn87d6nkc5r" path="res://Scenes/animation_base.tscn" id="1_kpm2e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fto16"]
+size = Vector3(1.83685, 2.52927, 1)
+
+[node name="PlayerGirl" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000396729, 1.22047, 0)
+shape = SubResource("BoxShape3D_fto16")
+
+[node name="animation base" parent="." instance=ExtResource("1_kpm2e")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)

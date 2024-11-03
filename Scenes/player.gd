@@ -13,20 +13,31 @@ extends CharacterBody3D
 var dashCount = 0
 var maxDashes = 3
 
+var isIdle = false
+
 
 var target_velocity = Vector3.ZERO
 
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
+	if isIdle == true:
+		$"animation base/AnimationPlayer".play("happy idle")
+	else:
+		$"animation base/AnimationPlayer".play("run/run")
+		
 	if Input.is_action_pressed("move_right"):
 		direction.x -= 1
+		isIdle = false
 	if Input.is_action_pressed("move_left"):
 		direction.x += 1
+		isIdle = false
 	if Input.is_action_pressed("move_back"):
 		direction.z -= 1
+		isIdle = false
 	if Input.is_action_pressed("move_forward"):
 		direction.z += 1
+		isIdle = false
 		
 	if is_on_floor() and Input.is_action_pressed("jump"):
 		target_velocity.y = jump_impulse * speed
@@ -59,7 +70,9 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-			
+		
+	#if is_on_floor() and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_forward"):
+		#isIdle = true
 	velocity = target_velocity
 	move_and_slide()
 	
