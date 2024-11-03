@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=9 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="PackedScene" uid="uid://b0fb307swncet" path="res://Scenes/Player.tscn" id="1_8ce3d"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_42od2"]
 [ext_resource type="Texture2D" uid="uid://cyjvxnsoiop8o" path="res://Assets/Hai.png" id="1_kk0f6"]
-[ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
+[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="2_yn0ed"]
 [ext_resource type="PackedScene" uid="uid://kugqgrlaicjl" path="res://Scenes/Environment/tile_set.tscn" id="4_ucwe6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1dwso"]
@@ -21,6 +22,7 @@ material = SubResource("StandardMaterial3D_wjgqq")
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_42od2")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -49,14 +51,13 @@ shadow_blur = 0.565
 sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_8ce3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2836, 0)
 
 [node name="CameraPivot" type="Marker3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -0.2836, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.929081, 1.56187, 1.45505)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00547791, -1.67642, 8.77239)
-fov = 131.297
+transform = Transform3D(1, 0, 0, 0, 0.921022, -0.389509, 0, 0.389509, 0.921022, 3.31646, 0.991443, 5.85981)
+fov = 110.0
 
 [node name="Ui" parent="." instance=ExtResource("2_yn0ed")]
 
