@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_42od2"]
-[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="2_yn0ed"]
+[ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
 [ext_resource type="PackedScene" uid="uid://kugqgrlaicjl" path="res://Scenes/Environment/tile_set.tscn" id="4_ucwe6"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
-[ext_resource type="PackedScene" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
-[ext_resource type="PackedScene" path="res://Scenes/player_girl.tscn" id="7_4j5xu"]
+[ext_resource type="PackedScene" uid="uid://rsa6q4mtuk2i" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
+[ext_resource type="PackedScene" uid="uid://bfnvpqc07pynk" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
+[ext_resource type="PackedScene" uid="uid://mw4s25ptqaev" path="res://Scenes/player_girl.tscn" id="7_4j5xu"]
 [ext_resource type="PackedScene" uid="uid://bpe1r80r7wgyk" path="res://Scenes/Environment/props/Barrel.tscn" id="7_ij14f"]
-[ext_resource type="PackedScene" path="res://Scenes/world.tscn" id="7_xlq7a"]
-[ext_resource type="PackedScene" uid="uid://dncuaugyh6m3e" path="res://Scenes/Enemy.tscn" id="8_1a0al"]
+[ext_resource type="PackedScene" uid="uid://diwqomsihvc3s" path="res://Scenes/world.tscn" id="7_xlq7a"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemy.tscn" id="8_1a0al"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="8_qv26f"]
 
 [sub_resource type="Curve3D" id="Curve3D_rny06"]
@@ -456,7 +456,7 @@ fov = 80.0
 curve = SubResource("Curve3D_rny06")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
-transform = Transform3D(-0.983496, -0.00580899, 0.180835, -2.32831e-10, 0.999484, 0.0321066, -0.180928, 0.0315767, -0.982989, -28.4474, 0.963542, -38.5968)
+transform = Transform3D(-0.983496, -0.00580898, 0.180835, 4.65661e-10, 0.999484, 0.0321065, -0.180928, 0.0315766, -0.982989, -28.4474, 0.963542, -38.5968)
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 5.0
