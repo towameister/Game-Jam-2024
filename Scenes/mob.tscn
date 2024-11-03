@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://hd4blcx7iwie"]
+[gd_scene load_steps=4 format=3 uid="uid://cr6st3rdwko8c"]
 
 [ext_resource type="Script" path="res://Scenes/mob.gd" id="1_i1dbd"]
 
@@ -7,6 +7,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_trg2c"]
 
 [node name="Mob" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_i1dbd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
