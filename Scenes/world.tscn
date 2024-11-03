@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://diwqomsihvc3s"]
+[gd_scene load_steps=10 format=3 uid="uid://diwqomsihvc3s"]
 
 [ext_resource type="PackedScene" uid="uid://doard3vcqgknx" path="res://Assets/Environment/world.fbx" id="1_6o65a"]
 
@@ -19,6 +19,12 @@ size = Vector3(11.7357, 11.0767, 1.48651)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wj4qp"]
 size = Vector3(7.60376, 3.63489, 1.34888)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apyl4"]
+size = Vector3(7.56754, 2.97667, 31.0453)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgepw"]
+size = Vector3(31.126, 7.48482, 3.52099)
 
 [node name="StaticBody3D" type="StaticBody3D"]
 collision_layer = 4
@@ -160,3 +166,67 @@ shape = SubResource("BoxShape3D_wj4qp")
 [node name="fence collision7" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 43.9167, 1.31744, 38.1867)
 shape = SubResource("BoxShape3D_wj4qp")
+
+[node name="roof angled" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.788075, 0.615579, 0, -0.615579, 0.788075, 0, 0, 0, 1, 18.081, 15.6858, -18.4123)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.788075, 0.615579, 0, -0.615579, 0.788075, 0, 0, 0, 1, -20.373, 15.6858, 20.2442)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.788011, -0.615662, 0, 0.615662, 0.788011, 0, 0, 0, 1, 52.34, 15.6858, -18.3142)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.4445e-08, -2.69114e-08, -1, -0.615662, 0.788011, 0, 0.788011, 0.615661, -4.37114e-08, -2.44212, 15.6858, 1.58671)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.4445e-08, -2.69114e-08, 1, -0.615662, 0.788011, 0, -0.788011, -0.615661, -4.37114e-08, 81.9608, 15.6858, 37.2849)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.4445e-08, -2.69114e-08, 1, -0.615662, 0.788011, 0, -0.788011, -0.615661, -4.37114e-08, -2.37279, 15.6858, 36.9822)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled7" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.4445e-08, -2.69114e-08, 1, -0.615662, 0.788011, 0, -0.788011, -0.615661, -4.37114e-08, 28.62, 15.6858, 44.4165)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof angled8" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.788075, 0.615579, 0, -0.615579, 0.788075, 0, 0, 0, 1, 83.5696, 15.6858, -10.2915)
+shape = SubResource("BoxShape3D_apyl4")
+
+[node name="roof flat" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47318, 15.3703, -1.953)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47318, 15.3703, 40.5486)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6822, 15.3703, 47.9929)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.0269, 15.3703, 40.7794)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.4372, 15.3703, -18.4235)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.2597, 15.3703, 19.2372)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat7" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 56.1374, 15.3703, -18.4235)
+shape = SubResource("BoxShape3D_fgepw")
+
+[node name="roof flat8" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 79.8968, 15.3703, -10.33)
+shape = SubResource("BoxShape3D_fgepw")
