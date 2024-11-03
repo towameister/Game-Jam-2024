@@ -3,9 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drhyxfemm1w1t"
-path="res://.godot/imported/world_8.png-eaf3110ce74e0d447f3f4100b2d5df19.ctex"
+path.s3tc="res://.godot/imported/world_8.png-eaf3110ce74e0d447f3f4100b2d5df19.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "22d3457e73e9596a1c941783c85a6121"
@@ -14,11 +15,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Environment/world_8.png"
-dest_files=["res://.godot/imported/world_8.png-eaf3110ce74e0d447f3f4100b2d5df19.ctex"]
+dest_files=["res://.godot/imported/world_8.png-eaf3110ce74e0d447f3f4100b2d5df19.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -34,4 +35,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
