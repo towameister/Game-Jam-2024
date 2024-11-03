@@ -1,17 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=12 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_42od2"]
-[ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
+[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="2_yn0ed"]
 [ext_resource type="PackedScene" uid="uid://kugqgrlaicjl" path="res://Scenes/Environment/tile_set.tscn" id="4_ucwe6"]
-[ext_resource type="PackedScene" uid="uid://rsa6q4mtuk2i" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
-[ext_resource type="PackedScene" uid="uid://bfnvpqc07pynk" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
-[ext_resource type="PackedScene" uid="uid://mw4s25ptqaev" path="res://Scenes/player_girl.tscn" id="7_4j5xu"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
+[ext_resource type="PackedScene" path="res://Scenes/player_girl.tscn" id="7_4j5xu"]
 [ext_resource type="PackedScene" uid="uid://bpe1r80r7wgyk" path="res://Scenes/Environment/props/Barrel.tscn" id="7_ij14f"]
-[ext_resource type="PackedScene" uid="uid://diwqomsihvc3s" path="res://Scenes/world.tscn" id="7_xlq7a"]
+[ext_resource type="PackedScene" path="res://Scenes/world.tscn" id="7_xlq7a"]
+[ext_resource type="PackedScene" uid="uid://dncuaugyh6m3e" path="res://Scenes/Enemy.tscn" id="8_1a0al"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="8_qv26f"]
+
+[sub_resource type="Curve3D" id="Curve3D_rny06"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -28.4474, 0.963542, -38.5968, 0, 0, 0, 0, 0, 0, -31.7953, 0.369137, -20.3982, 0, 0, 0, 0, 0, 0, -21.2921, 1.50497, -20.5587, 0, 0, 0, 0, 0, 0, -28.4474, 0.963542, -38.5968),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="Main" type="Node"]
 script = ExtResource("1_42od2")
+enemy_scene = ExtResource("8_1a0al")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.369747, 0.929133, 0, -0.929133, -0.369747, -15, 33.441, 1)
@@ -439,3 +448,17 @@ transform = Transform3D(-1, -5.96046e-08, 5.96046e-08, 0, 0.707107, 0.707107, -8
 [node name="Camera3D" type="Camera3D" parent="PlayerGirl/CameraPivot"]
 transform = Transform3D(1, 2.45189e-08, 6.0335e-10, -1.43969e-08, 0.761516, -0.648146, -1.95498e-08, 0.648146, 0.761516, 0.0791923, -2.59798, 4.81743)
 fov = 80.0
+
+[node name="Enemy" parent="." instance=ExtResource("8_1a0al")]
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rny06")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(-0.983496, -0.00580899, 0.180835, -2.32831e-10, 0.999484, 0.0321066, -0.180928, 0.0315767, -0.982989, -28.4474, 0.963542, -38.5968)
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

@@ -82,9 +82,23 @@ func _physics_process(delta):
 	if is_on_floor() and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_forward"):
 		isIdle = true
 		
-
-		
 	velocity = target_velocity
+	
+		# Iterate through all collisions that occurred this frame
+	for index in range(get_slide_collision_count()):
+		# We get one of the collisions with the player
+		var collision = get_slide_collision(index)
+
+		# If the collision is with ground
+		if collision.get_collider() == null:
+			continue
+
+		# If the collider is with a mob
+		if collision.get_collider().is_in_group("enemy"):
+			var enemy = collision.get_collider()
+			enemy.die()
+			break
+	
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
