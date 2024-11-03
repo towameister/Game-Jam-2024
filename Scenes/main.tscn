@@ -357,9 +357,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 8)
 [node name="TileSet108" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 8)
 
-[node name="Mob" parent="." instance=ExtResource("4_h5y7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-
 [node name="Floors" type="Node3D" parent="."]
 visible = false
 
