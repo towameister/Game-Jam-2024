@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var mouse_delta = Vector2()
 @export var sens = 0.001
 @export var jump_impulse = 1.5
-@export var dash_impulse = 3
+@export var dash_impulse = 2
 @onready var camera_pivot = $CameraPivot
 var dashCount = 0
 var maxDashes = 3
