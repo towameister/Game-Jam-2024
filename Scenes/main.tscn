@@ -439,6 +439,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, -0.714464, -40.4596
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, 5.80241, -36.2696)
 
 [node name="PlayerGirl" parent="." instance=ExtResource("7_4j5xu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -63, 0, 19)
 collision_mask = 7
 script = ExtResource("8_qv26f")
 
