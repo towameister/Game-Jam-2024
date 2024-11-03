@@ -13,7 +13,9 @@ extends CharacterBody3D
 var dashCount = 0
 var maxDashes = 3
 
-var isIdle = false
+var isIdle = true
+
+var alive = true
 
 
 var target_velocity = Vector3.ZERO
@@ -21,11 +23,17 @@ var target_velocity = Vector3.ZERO
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
-	if isIdle == true:
+	if isIdle == true and is_on_floor() and HealthBarControl.current_hp > 0:
 		$"animation base/AnimationPlayer".play("happy idle")
+	elif isIdle == false and is_on_floor() and HealthBarControl.current_hp > 0:
+		$"animation base/AnimationPlayer".play("run spot/run on spot")
+	elif alive == false:
+		$"animation base/AnimationPlayer".pause()
+	elif HealthBarControl.current_hp <= 0:
+		$"animation base/AnimationPlayer".play("die/die")
+		alive = false
 	else:
-		$"animation base/AnimationPlayer".play("run/run")
-		
+		$"animation base/AnimationPlayer".pause()
 	if Input.is_action_pressed("move_right"):
 		direction.x -= 1
 		isIdle = false
@@ -71,8 +79,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 		
-	#if is_on_floor() and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_forward"):
-		#isIdle = true
+	if is_on_floor() and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_back") and not Input.is_action_pressed("move_forward"):
+		isIdle = true
+		
+
+		
 	velocity = target_velocity
 	move_and_slide()
 	
@@ -81,7 +92,7 @@ func _input(event: InputEvent) -> void:
 		mouse_delta = event.relative
 		rotate_y(-event.relative.x * sens)
 		camera_pivot.rotate_x(event.relative.y * sens)
-		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-90), deg_to_rad(15))
+		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-70), deg_to_rad(-10))
 		
 func _process(delta) -> void:
 	pass
