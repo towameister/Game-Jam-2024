@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=8 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="PackedScene" uid="uid://b0fb307swncet" path="res://Scenes/Player.tscn" id="1_8ce3d"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_42od2"]
-[ext_resource type="Texture2D" uid="uid://cyjvxnsoiop8o" path="res://Assets/Hai.png" id="1_kk0f6"]
-[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="2_yn0ed"]
+[ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
 [ext_resource type="PackedScene" uid="uid://kugqgrlaicjl" path="res://Scenes/Environment/tile_set.tscn" id="4_ucwe6"]
 [ext_resource type="PackedScene" uid="uid://rsa6q4mtuk2i" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
 [ext_resource type="PackedScene" uid="uid://bfnvpqc07pynk" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
@@ -25,8 +24,8 @@ directional_shadow_max_distance = 5.4
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.929081, 1.56187, 1.45505)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.921022, -0.389509, 0, 0.389509, 0.921022, 3.31646, 0.991443, 5.85981)
-fov = 110.0
+transform = Transform3D(1, 0, 0, 0, 0.921022, -0.389509, 0, 0.389509, 0.921022, -0.68354, 0.991444, 5.85981)
+fov = 80.0
 
 [node name="Ui" parent="." instance=ExtResource("2_yn0ed")]
 
