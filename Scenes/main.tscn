@@ -408,6 +408,7 @@ transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -3, 0, -4.37114e-08, -209, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7134, -0.711395, -1.64597)
 
 [node name="PlayerGirl" parent="." instance=ExtResource("7_4j5xu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -63, 0, 19)
 collision_mask = 7
 script = ExtResource("8_qv26f")
 
@@ -417,3 +418,8 @@ transform = Transform3D(-1, -5.96046e-08, 5.96046e-08, 0, 0.707107, 0.707107, -8
 [node name="Camera3D" type="Camera3D" parent="PlayerGirl/CameraPivot"]
 transform = Transform3D(1, 2.45189e-08, 6.0335e-10, -1.43969e-08, 0.761516, -0.648146, -1.95498e-08, 0.648146, 0.761516, 0.0791923, -2.59798, 4.81743)
 fov = 80.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, -6.32203e-08, 6.32203e-08, 0, 0.707107, 0.707107, -8.9407e-08, 0.707107, -0.707107, -77.8611, 2.39815, 24.2117)
+light_energy = 11.819
+omni_range = 1.4496
