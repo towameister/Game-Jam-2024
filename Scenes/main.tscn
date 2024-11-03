@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=8 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="PackedScene" uid="uid://b0fb307swncet" path="res://Scenes/Player.tscn" id="1_8ce3d"]
 [ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://kugqgrlaicjl" path="res://Scenes/Environment/tile_set.tscn" id="4_ucwe6"]
 [ext_resource type="PackedScene" uid="uid://rsa6q4mtuk2i" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
 [ext_resource type="PackedScene" uid="uid://bfnvpqc07pynk" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
+[ext_resource type="PackedScene" uid="uid://diwqomsihvc3s" path="res://Scenes/world.tscn" id="7_xlq7a"]
 
 [node name="Main" type="Node"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.369747, 0.929133, 0, -0.929133, -0.369747, -15, 22, 1)
+transform = Transform3D(1, 0, 0, 0, -0.369747, 0.929133, 0, -0.929133, -0.369747, -15, 33.441, 1)
 light_color = Color(0.598351, 0.0614132, 0.242108, 1)
 light_energy = 0.677
 directional_shadow_fade_start = 0.638
@@ -30,6 +31,7 @@ fov = 80.0
 
 [node name="GroundTiles" type="Node3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 20, -1, -20)
+visible = false
 
 [node name="TileSet" parent="GroundTiles" instance=ExtResource("4_ucwe6")]
 
@@ -358,6 +360,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="Floors" type="Node3D" parent="."]
+visible = false
 
 [node name="Floor" parent="Floors" instance=ExtResource("5_mhw00")]
 
@@ -395,6 +398,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 60)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 120)
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6253, 0, -58.8838)
+visible = false
 
 [node name="Wall4" parent="Node3D" instance=ExtResource("6_1xx7f")]
 transform = Transform3D(4.1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 0, -29)
@@ -407,3 +412,8 @@ transform = Transform3D(4.1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 0, 149)
 
 [node name="Wall10" parent="Node3D" instance=ExtResource("6_1xx7f")]
 transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -3, 0, -4.37114e-08, -209, 0, 61)
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="StaticBody3D" parent="map" instance=ExtResource("7_xlq7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7134, -0.711395, -1.64597)
