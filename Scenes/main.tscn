@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhpi22irethqu"]
+[gd_scene load_steps=10 format=3 uid="uid://dhpi22irethqu"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_42od2"]
 [ext_resource type="PackedScene" uid="uid://6nptgnykgej6" path="res://Scenes/UI.tscn" id="2_yn0ed"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rsa6q4mtuk2i" path="res://Scenes/Environment/floor.tscn" id="5_mhw00"]
 [ext_resource type="PackedScene" uid="uid://bfnvpqc07pynk" path="res://Scenes/Environment/wall.tscn" id="6_1xx7f"]
 [ext_resource type="PackedScene" uid="uid://mw4s25ptqaev" path="res://Scenes/player_girl.tscn" id="7_4j5xu"]
+[ext_resource type="PackedScene" uid="uid://bpe1r80r7wgyk" path="res://Scenes/Environment/props/Barrel.tscn" id="7_ij14f"]
 [ext_resource type="PackedScene" uid="uid://diwqomsihvc3s" path="res://Scenes/world.tscn" id="7_xlq7a"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="8_qv26f"]
 
@@ -406,6 +407,27 @@ transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -3, 0, -4.37114e-08, -209, 
 
 [node name="StaticBody3D" parent="map" instance=ExtResource("7_xlq7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7134, -0.711395, -1.64597)
+
+[node name="Barrel" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, -0.714464, -36.2696)
+
+[node name="Barrel2" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, -0.714464, -38.3658)
+
+[node name="Barrel3" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, 1.45088, -36.2696)
+
+[node name="Barrel4" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, 3.63547, -36.2696)
+
+[node name="Barrel5" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, 1.47226, -38.3758)
+
+[node name="Barrel6" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, -0.714464, -40.4596)
+
+[node name="Barrel7" parent="map" instance=ExtResource("7_ij14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8758, 5.80241, -36.2696)
 
 [node name="PlayerGirl" parent="." instance=ExtResource("7_4j5xu")]
 collision_mask = 7
