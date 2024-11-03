@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://o4e5poh3g0dv"]
+[gd_scene load_steps=3 format=3 uid="uid://cq5gx501judn8"]
 
-[ext_resource type="PackedScene" uid="uid://dy7foipkoi0t" path="res://Assets/girl.fbx" id="1_4n3xj"]
+[ext_resource type="PackedScene" uid="uid://cf4mxy3xs5eqy" path="res://Assets/girl.fbx" id="1_4n3xj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0va0h"]
 radius = 0.0709735
@@ -9,7 +9,7 @@ height = 0.317335
 [node name="Node3D" type="Node3D"]
 
 [node name="girl" parent="." instance=ExtResource("1_4n3xj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.727072, 0, 0.343088)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.727072, 0, 0.343088)
 
 [node name="PhysicalBone3D" type="PhysicalBone3D" parent="girl"]
 joint_type = 1

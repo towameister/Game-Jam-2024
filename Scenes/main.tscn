@@ -21,10 +21,10 @@ directional_shadow_max_distance = 5.4
 [node name="Player" parent="." instance=ExtResource("1_8ce3d")]
 
 [node name="CameraPivot" type="Marker3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.929081, 1.56187, 1.45505)
+transform = Transform3D(-1, -5.96046e-08, 5.96046e-08, 0, 0.707107, 0.707107, -8.9407e-08, 0.707107, -0.707107, -0.070919, 1.56187, 0.45505)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.921022, -0.389509, 0, 0.389509, 0.921022, -0.68354, 0.991444, 5.85981)
+transform = Transform3D(1, 2.45189e-08, 6.0335e-10, -1.43969e-08, 0.761516, -0.648146, -1.95498e-08, 0.648146, 0.761516, 0.0791923, -2.59798, 4.81743)
 fov = 80.0
 
 [node name="Ui" parent="." instance=ExtResource("2_yn0ed")]
